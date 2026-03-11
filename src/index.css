@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-yellow: #f5e900;
+  --color-cyber-blue: #00f0ff;
+  --color-cyber-black: #050505;
+  --color-cyber-dark: #121212;
+  --font-sans: 'Space Grotesk', sans-serif;
+}
+
+body {
+  background-color: var(--color-cyber-black);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.cyber-border {
+  border: 1px solid var(--color-cyber-yellow);
+  position: relative;
+}
+
+.cyber-border::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--color-cyber-blue);
+  border-left: 2px solid var(--color-cyber-blue);
+}
+
+.cyber-button {
+  background: var(--color-cyber-yellow);
+  color: #000;
+  font-weight: 800;
+  text-transform: uppercase;
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 85% 100%, 0 100%);
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.cyber-button:hover {
+  background: var(--color-cyber-blue);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+}
+
+.glitch-text {
+  text-shadow: 2px 0 var(--color-cyber-yellow), -2px 0 var(--color-cyber-blue);
+}
+
+.grid-bg {
+  background-image: linear-gradient(rgba(245, 233, 0, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(245, 233, 0, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.scanline {
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 240, 255, 0.1);
+  position: absolute;
+  z-index: 10;
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
